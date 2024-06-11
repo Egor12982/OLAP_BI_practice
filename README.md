@@ -1,5 +1,6 @@
 1 задание:
 
+CLICKHOUSE:
 docker pull bitnami/clickhouse:latest
 
 docker run --name clickhouse -p 8123:8123 -p 9000:9000 -e CLICKHOUSE_ADMIN_PASSWORD=12345 -d bitnami/clickhouse:latest
@@ -14,6 +15,7 @@ docker run --name clickhouse_2 -p 8123:8123 -p 9000:9000 --cpus="1.5" --restart=
 
 
 
+POSTGRES:
 docker pull postgres:latest
 
 docker run --name postgres_3 -e POSTGRES_USER=egor -e POSTGRES_PASSWORD=mysecretpassword -p 5400:5432 -d postgres
