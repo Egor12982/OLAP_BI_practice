@@ -1,0 +1,27 @@
+services:
+  clickhouse_2:
+    image: bitnami/clickhouse:latest
+    container_name: clickhouse_2
+    ports:
+      - "8123:8123"
+      - "9000:9000"
+    cpus: 1.5
+    restart: unless-stopped
+    volumes:
+      - /data/clickhouse:/var/lib/clickhouse
+      - /logs/clickhouse:/var/log/clickhouse-server
+    environment:
+      - CLICKHOUSE_ADMIN_PASSWORD=12345
+
+  postgres_3:
+    image: postgres
+    container_name: postgres_3
+    environment:
+      POSTGRES_USER: egor
+      POSTGRES_PASSWORD: mysecretpassword
+    ports:
+      - "5400:5432"
+    cpus: 1.5
+    restart: unless-stopped
+    volumes:
+      - /path/on/host:/var/lib/postgresql/data
